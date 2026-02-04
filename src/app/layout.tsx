@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hr" className="lenis" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased overflow-x-hidden`}>
         <IntroScreen />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
