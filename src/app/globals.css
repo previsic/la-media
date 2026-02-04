@@ -4,7 +4,7 @@
   --background: #000000;
   --foreground: #ffffff;
   --muted: #888888;
-  --accent: #ff0000;
+  --accent: #e53935;
   --border: #222222;
 }
 
@@ -46,8 +46,65 @@ body {
 }
 
 ::selection {
-  background: #ff0000;
+  background: #e53935;
   color: #fff;
+}
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 10px !important;
+  background: #0a0a0a !important;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #0a0a0a !important;
+  border-left: 1px solid #1a1a1a !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #e53935 !important;
+  border-radius: 5px !important;
+  border: 2px solid #0a0a0a !important;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: #ff5252 !important;
+}
+
+/* Firefox */
+html, body {
+  scrollbar-width: thin !important;
+  scrollbar-color: #e53935 #0a0a0a !important;
+}
+
+/* Smooth image loading */
+img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img[src] {
+  opacity: 1;
+}
+
+/* Better focus states */
+*:focus-visible {
+  outline: 2px solid #e53935;
+  outline-offset: 2px;
+}
+
+/* Smooth button transitions */
+button, a {
+  transition: all 0.2s ease;
+}
+
+/* Text balance for headings */
+h1, h2, h3 {
+  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: reduce) {

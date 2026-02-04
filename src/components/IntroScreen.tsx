@@ -18,6 +18,13 @@ export default function IntroScreen() {
     setShouldRender(true);
     sessionStorage.setItem("la-media-intro", "1");
     
+    // Lock scroll while loading - completely disable all scrolling
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.height = "100%";
+    document.documentElement.style.overflow = "hidden";
+    
     // Animate progress
     const progressInterval = setInterval(() => {
       setProgress(prev => {
@@ -32,11 +39,22 @@ export default function IntroScreen() {
     // Start curtain lift after loader completes
     const timer = setTimeout(() => {
       setShowIntro(false);
+      // Unlock scroll
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+      document.documentElement.style.overflow = "";
     }, 3500);
 
     return () => {
       clearTimeout(timer);
       clearInterval(progressInterval);
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+      document.documentElement.style.overflow = "";
     };
   }, []);
 

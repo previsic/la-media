@@ -41,14 +41,17 @@ export default function Navigation() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#services" onClick={(e) => handleNavClick(e, "#services")} className="text-sm text-[#888] hover:text-white transition-colors">
+            <a href="#services" onClick={(e) => handleNavClick(e, "#services")} className="group relative text-sm text-[#888] hover:text-white transition-colors">
               Lokacije
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#e53935] group-hover:w-full transition-all duration-300" />
             </a>
-            <a href="#process" onClick={(e) => handleNavClick(e, "#process")} className="text-sm text-[#888] hover:text-white transition-colors">
+            <a href="#process" onClick={(e) => handleNavClick(e, "#process")} className="group relative text-sm text-[#888] hover:text-white transition-colors">
               Proces
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#e53935] group-hover:w-full transition-all duration-300" />
             </a>
-            <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")} className="text-sm text-[#888] hover:text-white transition-colors">
+            <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")} className="group relative text-sm text-[#888] hover:text-white transition-colors">
               Kontakt
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#e53935] group-hover:w-full transition-all duration-300" />
             </a>
           </div>
 

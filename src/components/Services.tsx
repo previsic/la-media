@@ -46,30 +46,40 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group relative aspect-[16/10] bg-[#111] overflow-hidden"
+            className="group relative aspect-[16/10] bg-[#111] overflow-hidden cursor-pointer"
           >
-            {/* Image placeholder */}
-            <div className="absolute inset-0 bg-[#0a0a0a]">
-              <div className="absolute inset-4 border border-[#222] flex items-center justify-center">
-                <span className="text-[#333] text-xs uppercase tracking-wider">Slika</span>
-              </div>
+            {/* Image placeholder with pattern */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#151515] to-[#0a0a0a]">
+              <div 
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage: `radial-gradient(circle at 1px 1px, #333 1px, transparent 0)`,
+                  backgroundSize: '20px 20px',
+                }}
+              />
+              {/* LED glow effect */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#e53935]/10 rounded-full blur-3xl group-hover:bg-[#e53935]/20 transition-all duration-500" />
             </div>
             
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
             
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-              <p className="text-[#ff0000] text-xs font-medium uppercase tracking-wider mb-1">
+              <p className="text-[#e53935] text-xs font-medium uppercase tracking-wider mb-1">
                 {loc.city}
               </p>
-              <h3 className="text-white text-lg md:text-xl font-medium">
+              <h3 className="text-white text-lg md:text-xl font-medium group-hover:translate-x-2 transition-transform duration-300">
                 {loc.spot}
               </h3>
             </div>
 
-            {/* Hover state */}
-            <div className="absolute inset-0 border-2 border-[#ff0000] opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Hover border animation */}
+            <div className="absolute inset-0 border border-[#e53935]/0 group-hover:border-[#e53935]/50 transition-all duration-300" />
+            
+            {/* Corner accents on hover */}
+            <div className="absolute top-2 left-2 w-4 h-4 border-l border-t border-[#e53935] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute bottom-2 right-2 w-4 h-4 border-r border-b border-[#e53935] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.div>
         ))}
       </div>
@@ -90,7 +100,7 @@ export default function Services() {
             e.preventDefault();
             document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="text-white text-sm font-medium hover:text-[#ff0000] transition-colors inline-flex items-center gap-2"
+          className="text-white text-sm font-medium hover:text-[#e53935] transition-colors inline-flex items-center gap-2"
         >
           Razgovarajmo
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

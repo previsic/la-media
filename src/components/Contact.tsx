@@ -26,13 +26,13 @@ export default function Contact() {
           <div className="space-y-6">
             <div>
               <p className="text-[#666] text-xs uppercase tracking-wider mb-1">Email</p>
-              <a href="mailto:lamedia.mo@gmail.com" className="text-white text-lg hover:text-[#ff0000] transition-colors">
+              <a href="mailto:lamedia.mo@gmail.com" className="text-white text-lg hover:text-[#e53935] transition-colors">
                 lamedia.mo@gmail.com
               </a>
             </div>
             <div>
               <p className="text-[#666] text-xs uppercase tracking-wider mb-1">Telefon</p>
-              <a href="tel:+38763062063" className="text-white text-lg hover:text-[#ff0000] transition-colors">
+              <a href="tel:+38763062063" className="text-white text-lg hover:text-[#e53935] transition-colors">
                 +387 63 062 063
               </a>
             </div>
@@ -51,7 +51,11 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative"
         >
+          {/* Form background accent */}
+          <div className="absolute -inset-8 bg-gradient-to-br from-[#e53935]/5 to-transparent rounded-2xl pointer-events-none" />
+          
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -63,40 +67,50 @@ export default function Contact() {
               const body = encodeURIComponent(`Ime: ${name}\nEmail: ${email}\n\n${message}`);
               window.location.href = `mailto:lamedia.mo@gmail.com?subject=${subject}&body=${body}`;
             }}
-            className="space-y-6"
+            className="relative space-y-8"
           >
-            <div>
+            <div className="group">
+              <label className="block text-[#666] text-xs uppercase tracking-wider mb-2 group-focus-within:text-[#e53935] transition-colors">
+                Ime
+              </label>
               <input
                 type="text"
                 name="name"
-                placeholder="Ime"
+                placeholder="Vaše ime"
                 required
-                className="w-full bg-transparent border-b border-[#333] py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#ff0000] transition-colors"
+                className="w-full bg-transparent border-b-2 border-[#222] py-3 text-white placeholder-[#444] focus:outline-none focus:border-[#e53935] transition-colors"
               />
             </div>
-            <div>
+            <div className="group">
+              <label className="block text-[#666] text-xs uppercase tracking-wider mb-2 group-focus-within:text-[#e53935] transition-colors">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="vas@email.com"
                 required
-                className="w-full bg-transparent border-b border-[#333] py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#ff0000] transition-colors"
+                className="w-full bg-transparent border-b-2 border-[#222] py-3 text-white placeholder-[#444] focus:outline-none focus:border-[#e53935] transition-colors"
               />
             </div>
-            <div>
+            <div className="group">
+              <label className="block text-[#666] text-xs uppercase tracking-wider mb-2 group-focus-within:text-[#e53935] transition-colors">
+                Poruka
+              </label>
               <textarea
                 name="message"
-                placeholder="Poruka"
+                placeholder="Kako vam možemo pomoći?"
                 rows={4}
                 required
-                className="w-full bg-transparent border-b border-[#333] py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#ff0000] transition-colors resize-none"
+                className="w-full bg-transparent border-b-2 border-[#222] py-3 text-white placeholder-[#444] focus:outline-none focus:border-[#e53935] transition-colors resize-none"
               />
             </div>
             <button
               type="submit"
-              className="w-full py-4 bg-[#ff0000] text-white font-medium hover:bg-[#cc0000] transition-colors"
+              className="group relative w-full py-4 bg-[#e53935] text-white font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,57,53,0.4)]"
             >
-              Pošalji
+              <span className="relative z-10">Pošalji upit</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#c62828] to-[#e53935] translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
             </button>
           </form>
         </motion.div>

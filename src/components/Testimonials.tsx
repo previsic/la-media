@@ -53,33 +53,45 @@ export default function Testimonials() {
   return (
     <section id="testimonials" ref={ref} className="bg-black py-24 md:py-32 px-6 md:px-16 lg:px-24 border-t border-[#151515]">
       {/* Testimonial slider */}
-      <div className="max-w-4xl mb-16 min-h-[280px] md:min-h-[320px]">
+      <div className="max-w-4xl mb-16 min-h-[280px] md:min-h-[320px] relative">
+        {/* Large quote mark */}
+        <div className="absolute -top-4 -left-4 text-[120px] md:text-[180px] leading-none text-[#e53935]/10 font-serif select-none pointer-events-none">
+          "
+        </div>
+        
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative z-10"
           >
             <p className="text-2xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-8">
-              "{testimonials[current].quote}"
+              {testimonials[current].quote}
             </p>
-            <div>
-              <p className="text-white font-medium">{testimonials[current].name}</p>
-              <p className="text-[#666] text-sm">{testimonials[current].role}</p>
+            <div className="flex items-center gap-4">
+              {/* Avatar placeholder */}
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#e53935] to-[#b71c1c] flex items-center justify-center text-white font-bold">
+                {testimonials[current].name.charAt(0)}
+              </div>
+              <div>
+                <p className="text-white font-medium">{testimonials[current].name}</p>
+                <p className="text-[#666] text-sm">{testimonials[current].role}</p>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Dots indicator */}
-        <div className="flex gap-2 mt-8">
+        {/* Progress dots */}
+        <div className="flex gap-3 mt-10">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === current ? "bg-[#ff0000]" : "bg-[#333]"
+              className={`h-1 rounded-full transition-all duration-300 ${
+                index === current ? "bg-[#e53935] w-8" : "bg-[#333] w-2 hover:bg-[#555]"
               }`}
               aria-label={`Testimonial ${index + 1}`}
             />

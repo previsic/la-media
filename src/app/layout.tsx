@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="hr" className="lenis">
+    <html lang="hr" className="lenis" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
         <IntroScreen />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
