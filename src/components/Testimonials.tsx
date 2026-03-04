@@ -55,7 +55,7 @@ export default function Testimonials() {
       {/* Testimonial slider */}
       <div className="max-w-4xl mb-16 min-h-[280px] md:min-h-[320px] relative">
         {/* Large quote mark */}
-        <div className="absolute -top-4 -left-4 text-[120px] md:text-[180px] leading-none text-[#e53935]/10 font-serif select-none pointer-events-none">
+        <div className="absolute -top-4 -left-4 text-[120px] md:text-[180px] leading-none text-[#1f84dd]/10 font-serif select-none pointer-events-none">
           "
         </div>
         
@@ -73,7 +73,7 @@ export default function Testimonials() {
             </p>
             <div className="flex items-center gap-4">
               {/* Avatar placeholder */}
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#e53935] to-[#b71c1c] flex items-center justify-center text-white font-bold">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1f84dd] to-[#002749] flex items-center justify-center text-white font-bold">
                 {testimonials[current].name.charAt(0)}
               </div>
               <div>
@@ -91,7 +91,7 @@ export default function Testimonials() {
               key={index}
               onClick={() => setCurrent(index)}
               className={`h-1 rounded-full transition-all duration-300 ${
-                index === current ? "bg-[#e53935] w-8" : "bg-[#333] w-2 hover:bg-[#555]"
+                index === current ? "bg-[#1f84dd] w-8" : "bg-[#333] w-2 hover:bg-[#555]"
               }`}
               aria-label={`Testimonial ${index + 1}`}
             />

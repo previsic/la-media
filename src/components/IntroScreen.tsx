@@ -70,17 +70,17 @@ export default function IntroScreen() {
             duration: 1.2, 
             ease: [0.76, 0, 0.24, 1],
           }}
-          className="fixed inset-0 z-[100] bg-[#0a0a0a] flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[100] bg-white flex items-center justify-center overflow-hidden"
         >
-          {/* Big red percentage */}
+          {/* Big percentage */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="text-[20vw] md:text-[25vw] font-black leading-none tracking-tighter"
             style={{ 
-              color: "#e53935",
-              fontFamily: "system-ui, -apple-system, sans-serif",
+              color: "#1f84dd",
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
             }}
           >
             {Math.min(Math.round(progress), 100)}
@@ -88,12 +88,12 @@ export default function IntroScreen() {
           </motion.div>
 
           {/* Bottom progress line */}
-          <div className="absolute bottom-0 left-0 right-0 h-[4px] bg-white/10">
+          <div className="absolute bottom-0 left-0 right-0 h-[4px] bg-[#e5e5e5]">
             <motion.div
               className="h-full"
               style={{ 
                 width: `${Math.min(progress, 100)}%`,
-                backgroundColor: "#e53935",
+                backgroundColor: "#1f84dd",
               }}
               transition={{ duration: 0.15 }}
             />

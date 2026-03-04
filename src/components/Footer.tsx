@@ -1,16 +1,40 @@
 "use client";
 
+import Link from "next/link";
+
 const year = new Date().getFullYear();
+
+const footerLinks = [
+  { label: "Početna", href: "/" },
+  { label: "Video zidovi", href: "/video-zidovi" },
+  { label: "Bilbordi", href: "/bilbordi" },
+  { label: "Partneri", href: "/partneri" },
+  { label: "Kontakt", href: "/kontakt" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-12 px-6 md:px-16 lg:px-24 border-t border-[#151515]">
+    <footer className="bg-[#f8f9fa] py-12 px-6 md:px-16 lg:px-24 border-t border-[#e5e5e5]">
       <div className="flex flex-col gap-8">
-        {/* Top row */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
-            <p className="text-white text-2xl font-bold tracking-tight mb-2">LA—MEDIA</p>
-            <p className="text-[#666] text-sm">LED oglašavanje koje se pamti.</p>
+            <img src="/logo-mediawin-color.svg" alt="MediaWin" className="h-10 w-auto object-contain mb-2" />
+            <p className="text-[#555] text-sm">Marketinška i oglašivačka tvrtka, Mostar.</p>
+          </div>
+
+          <div>
+            <p className="text-[#555] text-xs uppercase tracking-wider mb-3">Brzi linkovi</p>
+            <nav className="flex flex-wrap gap-x-6 gap-y-1">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[#555] text-sm hover:text-[#1f84dd] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
           
           <div className="flex gap-4">
@@ -18,7 +42,7 @@ export default function Footer() {
               href="https://instagram.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-full border border-[#333] flex items-center justify-center text-[#666] hover:border-[#e53935] hover:text-[#e53935] transition-colors"
+              className="w-10 h-10 rounded-full border border-[#ccc] flex items-center justify-center text-[#555] hover:border-[#1f84dd] hover:text-[#1f84dd] transition-colors"
               aria-label="Instagram"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -29,7 +53,7 @@ export default function Footer() {
               href="https://facebook.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-full border border-[#333] flex items-center justify-center text-[#666] hover:border-[#e53935] hover:text-[#e53935] transition-colors"
+              className="w-10 h-10 rounded-full border border-[#ccc] flex items-center justify-center text-[#555] hover:border-[#1f84dd] hover:text-[#1f84dd] transition-colors"
               aria-label="Facebook"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +64,7 @@ export default function Footer() {
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-full border border-[#333] flex items-center justify-center text-[#666] hover:border-[#e53935] hover:text-[#e53935] transition-colors"
+              className="w-10 h-10 rounded-full border border-[#ccc] flex items-center justify-center text-[#555] hover:border-[#1f84dd] hover:text-[#1f84dd] transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -50,13 +74,15 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Divider */}
-        <div className="h-[1px] bg-gradient-to-r from-[#222] via-[#333] to-[#222]" />
+        <div className="h-[1px] bg-[#e5e5e5]" />
         
-        {/* Bottom row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[#666] text-xs">
-          <p>© {year} LA-MEDIA d.o.o. Sva prava pridržana.</p>
-          <p>Mostar, Bosna i Hercegovina</p>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[#555] text-xs">
+          <p>© {year} Media Win d.o.o. Mostar. Sva prava pridržana.</p>
+          <div className="text-right">
+            <p>Kralja Zvonimira 13, 88000 Mostar</p>
+            <p>Tel: +387 36 315 956 · Mob: +387 63 312 202</p>
+            <a href="mailto:mediawin.mostar@gmail.com" className="hover:text-[#1f84dd] transition-colors">mediawin.mostar@gmail.com</a>
+          </div>
         </div>
       </div>
     </footer>

@@ -45,7 +45,7 @@ export default function Process() {
       {/* Steps */}
       <div className="relative">
         {/* Connecting line - desktop only */}
-        <div className="hidden lg:block absolute top-8 left-0 right-0 h-[1px] bg-gradient-to-r from-[#e53935]/50 via-[#e53935]/20 to-transparent" />
+        <div className="hidden lg:block absolute top-8 left-0 right-0 h-[1px] bg-gradient-to-r from-[#1f84dd]/50 via-[#1f84dd]/20 to-transparent" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
           {steps.map((step, i) => (
@@ -58,8 +58,8 @@ export default function Process() {
             >
               {/* Number with circle */}
               <div className="relative inline-flex items-center justify-center w-12 h-12 mb-6">
-                <div className="absolute inset-0 bg-[#e53935]/10 rounded-full group-hover:bg-[#e53935]/20 transition-colors duration-300" />
-                <span className="text-[#e53935] text-sm font-mono font-bold">{step.num}</span>
+                <div className="absolute inset-0 bg-[#1f84dd]/10 rounded-full group-hover:bg-[#1f84dd]/20 transition-colors duration-300" />
+                <span className="text-[#1f84dd] text-sm font-mono font-bold">{step.num}</span>
               </div>
               
               <h3 className="text-white text-xl md:text-2xl font-semibold mb-3">
@@ -71,7 +71,7 @@ export default function Process() {
               
               {/* Arrow indicator - desktop only */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-6 -right-2 text-[#e53935]/30">
+                <div className="hidden lg:block absolute top-6 -right-2 text-[#1f84dd]/30">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
